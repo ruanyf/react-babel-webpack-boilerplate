@@ -1,20 +1,12 @@
 var webpack = require('webpack');
 var path = require('path');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true,
-    contentBase: './app',
-    port: 8080
-  },
+  devtool: 'cheap-source-map',
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'app/main.jsx')
+    path.resolve(__dirname, 'app/main.jsx'),
   ],
   output: {
     path: __dirname + '/build',
@@ -31,7 +23,15 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+    new webpack.optimize.DedupePlugin(),
+    new uglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new CopyWebpackPlugin([
+      { from: './app/index.html', to: 'index.html' },
+      { from: './app/main.css', to: 'main.css' }
+    ]),
   ]
 };
