@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/main.jsx",
   "scripts": {
-    "lint": "eslint app/*.js app/*.jsx app/**/*.js app/**/*.jsx",
+    "lint": "eslint 'app/**/*.@(js|jsx)'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base app",
