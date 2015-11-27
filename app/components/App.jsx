@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('./main.css');
+require('./App.css');
 
 export default class App extends React.Component {
   constructor(props) {
