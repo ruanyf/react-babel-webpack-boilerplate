@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var Promise = require('es6-promise').Promise;
 
 module.exports = {
   devtool: 'cheap-source-map',
