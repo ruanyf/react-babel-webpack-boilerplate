@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var Promise = require('es6-promise').Promise;
+
 
 module.exports = {
   devServer: {

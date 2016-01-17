@@ -27,13 +27,14 @@
     "babel-preset-react": "~6.1.18",
     "babel-preset-stage-0": "~6.1.18",
     "copy-webpack-plugin": "~0.3.3",
-    "css-loader": "~0.23.0",
+    "css-loader": "~0.23.1",
     "eslint": "~1.10.1",
     "eslint-config-airbnb": "~1.0.0",
     "eslint-plugin-react": "~3.10.0",
     "open-browser-webpack-plugin": "0.0.1",
     "precommit-hook": "~3.0.0",
-    "style-loader": "~0.13.0"
+    "style-loader": "~0.13.0",
+    "es6-promise": "~3.0.2"
   },
   "keywords": [
     "es6",
