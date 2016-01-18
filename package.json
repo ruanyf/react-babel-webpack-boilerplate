@@ -17,8 +17,6 @@
     "react-dom": "~0.14.3"
   },
   "devDependencies": {
-    "webpack": "~1.12.9",
-    "webpack-dev-server": "~1.14.0",
     "babel-core": "~6.2.1",
     "babel-eslint": "~4.1.6",
     "babel-loader": "~6.2.0",
@@ -28,13 +26,17 @@
     "babel-preset-stage-0": "~6.1.18",
     "copy-webpack-plugin": "~0.3.3",
     "css-loader": "~0.23.1",
+    "es6-promise": "~3.0.2",
     "eslint": "~1.10.1",
     "eslint-config-airbnb": "~1.0.0",
     "eslint-plugin-react": "~3.10.0",
+    "node-sass": "^3.4.2",
     "open-browser-webpack-plugin": "0.0.1",
     "precommit-hook": "~3.0.0",
+    "sass-loader": "^3.1.2",
     "style-loader": "~0.13.0",
-    "es6-promise": "~3.0.2"
+    "webpack": "~1.12.9",
+    "webpack-dev-server": "~1.14.0"
   },
   "keywords": [
     "es6",

@@ -1,15 +1,20 @@
 import React from 'react';
+import Header from './Header.jsx';
 
-require('./App.css');
+import '../sass/Main.sass';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    return (
-      <h1>Hello World</h1>
-    );
-  }
+    render() {
+        return (
+            <div className='start-bg'>
+            <Header />
+            <h1>Hello World</h1>
+            </div>
+        );
+    }
 }
+
