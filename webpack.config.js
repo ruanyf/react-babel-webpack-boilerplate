@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var Promise = require('es6-promise').Promise;
+
 
 module.exports = {
   devServer: {
@@ -23,7 +25,8 @@ module.exports = {
   },
   module: {
     loaders:[
-      { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
+ //     { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
+      { test: /\.sass?$/, include: path.resolve(__dirname, 'app'), loaders:["style","css?sourceMap","sass?sourceMap"] },
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
     ]
   },
