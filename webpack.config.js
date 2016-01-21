@@ -27,6 +27,9 @@ module.exports = {
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
     ]
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' })
