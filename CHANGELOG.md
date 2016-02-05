@@ -1,5 +1,5 @@
 <a name="1.1.0"></a>
-# [1.1.0](//compare/v1.1.0...v1.1.0) (2016-02-05)
+# 1.1.0 (2016-02-05)
 
 ## Features
 
@@ -8,7 +8,7 @@
 * use ghooks instead of pre-commit 555b6d1
 
 <a name="1.0.0"></a>
-# [1.0.0](//compare/8adae04...v1.0.0) (2016-02-05)
+# 1.0.0 (2015-12-10)
 
 ## Features
 
