@@ -30,6 +30,7 @@
     "eslint": "~1.10.1",
     "eslint-config-airbnb": "~1.0.0",
     "eslint-plugin-react": "~3.10.0",
+    "ghooks": "^1.0.3",
     "open-browser-webpack-plugin": "0.0.1",
     "precommit-hook": "~3.0.0",
     "style-loader": "~0.13.0",
@@ -44,12 +45,23 @@
   ],
   "author": "Ruan Yifeng",
   "license": "MIT",
-  "pre-commit": [
-    "lint", "lint:msg"
-  ],
   "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run lint:msg"
+    },
     "validate-commit-msg": {
-      "types": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore", "revert"],
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
       "warnOnFail": false,
       "maxSubjectLength": 100
     }
