@@ -12,7 +12,7 @@
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js",
     "validate": "npm ls",
     "commit": "git cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "dependencies": {
     "babel-runtime": "6.x",
