@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App.jsx';
+import Login from './components/Login/Login.jsx';
 
 ReactDOM.render(
-  <App />,
+  <Login />,
   document.body.appendChild(document.createElement('div'))
 );

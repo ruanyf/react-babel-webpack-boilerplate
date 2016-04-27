@@ -17,7 +17,9 @@
   "dependencies": {
     "babel-runtime": "6.x",
     "react": "15.x",
-    "react-dom": "15.x"
+    "react-bootstrap": "^0.29.2",
+    "react-dom": "15.x",
+    "react-router": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "6.x",
