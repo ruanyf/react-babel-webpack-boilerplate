@@ -4,14 +4,14 @@
   "description": "",
   "main": "app/main.jsx",
   "scripts": {
-    "lint": "eslint 'app/**/*.@(js|jsx)'",
+    "lint": "eslint 'app/**/*.jsx'",
     "lint:msg": "validate-commit-msg",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base app",
-    "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "deploy": "set NODE_ENV=production&&webpack -p --config webpack.production.config.js",
     "validate": "npm ls",
-    "commit": "git cz",
+    "commit": "git cz",   
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "dependencies": {
@@ -39,7 +39,9 @@
     "eslint-plugin-jsx-a11y": "0.x",
     "eslint-plugin-react": "4.x",
     "ghooks": "^1.0.3",
+    "html-webpack-plugin": "^2.16.0",
     "open-browser-webpack-plugin": "0.0.2",
+    "sass-loader": "^3.2.0",
     "style-loader": "~0.13.0",
     "validate-commit-msg": "2.x",
     "webpack": "1.x",

@@ -1,6 +1,6 @@
 {
-  "name": "Feedback",
+  "name": "Login",
   "version": "0.0.0",
   "private": true,
-  "main": "./Feedback.js"
+  "main": "./Login.jsx"
 }

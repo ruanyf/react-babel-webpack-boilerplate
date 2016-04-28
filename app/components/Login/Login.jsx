@@ -1,8 +1,9 @@
 import React from 'react';
-
+import {render, findDOMNode} from 'react-dom';
+import {browserHistory} from 'react-router';
 import {Button, Form, FormGroup, Col, FormControl, Checkbox} from 'react-bootstrap';
 
-require('./Login.css');
+require('./Login.scss');
 
 // export default () => <h1>Hello World</h1>;
 
@@ -11,17 +12,25 @@ export default class App extends React.Component {
     super(props);
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    const email = findDOMNode(this.ref.email).value
+    const password = findDOMNode(this.ref.password).value
+    const path = '/repos/${email}/${password}}'
+    browserHistory.push(path)
+  }
+
   render() {
     const ControlLabel = 'control-label'
     return (
-      <div>
-        <Form horizontal>
+      <div className='container'>
+        <Form horizontal onSubmit={this.handleSubmit}>
           <FormGroup controlId="formHorizontalEmail">
             <Col componentClass={ControlLabel} sm={2}>
               Email
             </Col>
             <Col sm={10}>
-              <FormControl type="email" placeholder="Email" />
+              <FormControl ref="email" type="email" placeholder="Email" />
             </Col>
           </FormGroup>
 
@@ -30,7 +39,7 @@ export default class App extends React.Component {
               Password
             </Col>
             <Col sm={10}>
-              <FormControl type="password" placeholder="Password" />
+              <FormControl ref="password" type="password" placeholder="Password" />
             </Col>
           </FormGroup>
 
