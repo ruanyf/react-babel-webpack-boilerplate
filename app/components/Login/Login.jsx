@@ -2,10 +2,9 @@ import React from 'react';
 import {render, findDOMNode} from 'react-dom';
 import {browserHistory} from 'react-router';
 import {Button, Form, FormGroup, Col, FormControl, Checkbox} from 'react-bootstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 require('./Login.scss');
-
-// export default () => <h1>Hello World</h1>;
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,41 +21,48 @@ export default class App extends React.Component {
 
   render() {
     const ControlLabel = 'control-label'
+    const key = "sdfsdfsdfsdfsdfsd"
     return (
       <div className='container'>
-        <Form horizontal onSubmit={this.handleSubmit}>
-          <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
-              Email
-            </Col>
-            <Col sm={10}>
-              <FormControl ref="email" type="email" placeholder="Email" />
-            </Col>
-          </FormGroup>
+        <ReactCSSTransitionGroup
+          component="div"
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}>
+          <Form key="1" horizontal onSubmit={this.handleSubmit}>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Email
+              </Col>
+              <Col sm={10}>
+                <FormControl ref="email" type="email" placeholder="Email" />
+              </Col>
+            </FormGroup>
 
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl ref="password" type="password" placeholder="Password" />
-            </Col>
-          </FormGroup>
+            <FormGroup controlId="formHorizontalPassword">
+              <Col componentClass={ControlLabel} sm={2}>
+                Password
+              </Col>
+              <Col sm={10}>
+                <FormControl ref="password" type="password" placeholder="Password" />
+              </Col>
+            </FormGroup>
 
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
-            </Col>
-          </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Checkbox>Remember me</Checkbox>
+              </Col>
+            </FormGroup>
 
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button type="submit">
-                Sign in
-              </Button>
-            </Col>
-          </FormGroup>
-        </Form>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button type="submit">
+                  Sign in
+                </Button>
+              </Col>
+            </FormGroup>
+          </Form>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
