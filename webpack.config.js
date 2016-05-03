@@ -30,6 +30,7 @@ module.exports = {
       { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
       { test: /\.scss$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader!sass-loader' },
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /.*\.(jpe?g|png|gif|svg)$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack-loader'] },
     ]
   },
   resolve: {

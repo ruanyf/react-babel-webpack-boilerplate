@@ -9,6 +9,7 @@ require('./Login.scss');
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { email: 'chui.lee8@gmail.com'}
   }
 
   handleSubmit(e) {
@@ -28,14 +29,16 @@ export default class App extends React.Component {
           component="div"
           transitionName="example"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}>
+          transitionLeaveTimeout={500}
+          transitionAppearTimeout={1500}
+          transitionAppear={true}>
           <Form key="1" horizontal onSubmit={this.handleSubmit}>
             <FormGroup controlId="formHorizontalEmail">
               <Col componentClass={ControlLabel} sm={2}>
                 Email
               </Col>
               <Col sm={10}>
-                <FormControl ref="email" type="email" placeholder="Email" />
+                <FormControl ref="email" type="email" placeholder={this.state.email} />
               </Col>
             </FormGroup>
 
