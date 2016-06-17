@@ -2,8 +2,8 @@ This repo is a boilerplate for React-Babel-Webpack project. You could use it as 
 
 ## Features
 
-- Equip with React 0.14, ES6 & Babel 6
-- Lint with ESlint and Airbnb's .eslintrc
+- Equip with React, ES6 & Babel 6
+- Lint with ESlint and Airbnb's style sheet.
 - Build with Webpack
 - Support [hot module replacement](https://webpack.github.io/docs/hot-module-replacement.html)
 - Auto Open a new browser tab when Webpack loads, and reload the page when you modified the code
