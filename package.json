@@ -8,7 +8,7 @@
     "lint:msg": "validate-commit-msg",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base app",
+    "start": "webpack-dev-server --devtool eval --progress --hot --content-base app",
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js",
     "validate": "npm ls",
     "commit": "git cz",
@@ -29,19 +29,19 @@
     "babel-preset-stage-0": "6.x",
     "commitizen": "^2.5.0",
     "conventional-changelog-cli": "1.x",
-    "copy-webpack-plugin": "2.x",
+    "copy-webpack-plugin": "latest",
     "css-loader": "~0.23.0",
     "cz-conventional-changelog": "^1.1.5",
-    "eslint": "2.x",
-    "eslint-config-airbnb": "7.x",
-    "eslint-plugin-jsx-a11y": "0.x",
-    "eslint-plugin-react": "4.x",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-react": "latest",
     "ghooks": "^1.0.3",
     "open-browser-webpack-plugin": "0.0.2",
     "style-loader": "~0.13.0",
     "validate-commit-msg": "2.x",
-    "webpack": "1.x",
-    "webpack-dev-server": "1.x"
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
   },
   "keywords": [
     "es6",
@@ -75,3 +75,4 @@
     }
   }
 }
+
