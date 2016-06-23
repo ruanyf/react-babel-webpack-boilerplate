@@ -34,6 +34,7 @@
     "cz-conventional-changelog": "^1.1.5",
     "eslint": "latest",
     "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "latest",
     "eslint-plugin-react": "latest",
     "ghooks": "^1.0.3",
