@@ -1,11 +1,14 @@
 {
   "env": {
+    "browser": true,
     "node": true
   },
   ecmaFeatures: {
     jsx: true
   },
   "globals": {
+    "window": true,
+    "document": true
   },
   "plugins": [
   ],
