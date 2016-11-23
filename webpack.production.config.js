@@ -29,6 +29,11 @@ module.exports = {
         warnings: false
       }
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new CopyWebpackPlugin([
       { from: './app/index.html', to: 'index.html' },
       { from: './app/main.css', to: 'main.css' }
