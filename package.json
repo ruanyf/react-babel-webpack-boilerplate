@@ -36,7 +36,7 @@
     "eslint": "latest",
     "eslint-config-airbnb": "latest",
     "eslint-plugin-import": "latest",
-    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-jsx-a11y": "2.x",
     "eslint-plugin-react": "latest",
     "ghooks": "^1.0.3",
     "open-browser-webpack-plugin": "0.0.2",
