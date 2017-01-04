@@ -1,7 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const { UglifyJsPlugin } = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
   devtool: 'cheap-source-map',
@@ -9,12 +10,12 @@ module.exports = {
     path.resolve(__dirname, 'app/main.jsx'),
   ],
   output: {
-    path: __dirname + '/build',
+    path: `${__dirname}/build`,
     publicPath: '/',
     filename: './bundle.js'
   },
   module: {
-    loaders:[
+    loaders: [
       { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
     ]
@@ -24,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new uglifyJsPlugin({
+    new UglifyJsPlugin({
       compress: {
         warnings: false
       }
