@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var path = require('path');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   devServer: {
@@ -17,12 +17,12 @@ module.exports = {
     path.resolve(__dirname, 'app/main.jsx')
   ],
   output: {
-    path: __dirname + '/build',
+    path: `${__dirname}/build`,
     publicPath: '/',
     filename: './bundle.js'
   },
   module: {
-    loaders:[
+    loaders: [
       { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader' },
       { test: /\.js[x]?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader' },
     ]

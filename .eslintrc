@@ -3,20 +3,21 @@
     "browser": true,
     "node": true
   },
-  ecmaFeatures: {
-    jsx: true
+  "plugins": ["compat"],
+  "extends": "airbnb",
+  "ecmaFeatures": {
+    "jsx": true
   },
   "globals": {
     "window": true,
     "document": true
   },
-  "plugins": [
-  ],
-  "extends": "eslint-config-airbnb",
   "rules": {
     "comma-dangle": 0,
     "no-console": 0,
     "id-length": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "new-cap": 0,
+    "import/no-extraneous-dependencies": ["off"],
   }
 }
