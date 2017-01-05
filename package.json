@@ -4,6 +4,8 @@
   "description": "",
   "main": "app/main.jsx",
   "scripts": {
+    "precommit": "npm run lint",
+    "commitmsg": "npm run lint:msg",
     "lint": "eslint 'app/**/*.@(js|jsx)'",
     "lint:msg": "validate-commit-msg",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,7 +40,7 @@
     "eslint-plugin-import": "latest",
     "eslint-plugin-jsx-a11y": "2.x",
     "eslint-plugin-react": "latest",
-    "ghooks": "^2.0.0",
+    "husky": "^0.12.0",
     "open-browser-webpack-plugin": "0.0.3",
     "style-loader": "~0.13.1",
     "validate-commit-msg": "2.x",
@@ -53,10 +55,6 @@
   "author": "Ruan Yifeng",
   "license": "MIT",
   "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "npm run lint:msg"
-    },
     "validate-commit-msg": {
       "types": [
         "feat",
