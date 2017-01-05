@@ -1,22 +1,36 @@
 {
+  "parser": "babel-eslint",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "node": true
   },
-  ecmaFeatures: {
-    jsx: true
-  },
-  "globals": {
-    "window": true,
-    "document": true
+  "rules": {
+    "arrow-parens": 0,
+    "class-methods-use-this": 0,          # HACK: Classes will be replaced by pure fn's
+    "comma-dangle": ["error", "never"],
+    "consistent-return": 2,
+    "func-names": 2,
+    "generator-star-spacing": [0],        # HACK: https://github.com/airbnb/javascript/issues/948
+    "import/no-extraneous-dependencies": ["off"],
+    "import/extensions": 0,
+    "import/no-unresolved": [2, { "ignore": ["electron"] }],
+    "new-cap": 0,
+    "no-implicit-coercion": "error",
+    "no-mixed-operators": 0,
+    "no-plusplus": 0,
+    "no-use-before-define": 0,
+    "no-nested-ternary": 0,
+    "no-underscore-dangle": 0,
+    "no-var": "error",
+    "semi": ["error", "always"],
+    "promise/param-names": 2,
+    "promise/always-return": 2,
+    "promise/catch-or-return": 2,
+    "promise/no-native": 0
   },
   "plugins": [
-  ],
-  "extends": "eslint-config-airbnb",
-  "rules": {
-    "comma-dangle": 0,
-    "no-console": 0,
-    "id-length": 0,
-    "react/prop-types": 0
-  }
+    "import",
+    "promise"
+  ]
 }
