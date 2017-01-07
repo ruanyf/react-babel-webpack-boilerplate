@@ -5,8 +5,12 @@
     "browser": true,
     "node": true
   },
-  "ecmaFeatures": {
-    "jsx": true
+  "parserOptions": {
+     "ecmaVersion": 6,
+     "sourceType": "module",
+     "ecmaFeatures": {
+       "jsx": true
+     }
   },
   "globals": {
     "window": true,
