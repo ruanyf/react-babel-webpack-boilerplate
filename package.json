@@ -1,6 +1,6 @@
 {
   "name": "react-babel-webpack-boilerplate",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A boilerplate for React-Babel-Webpack project",
   "main": "app/main.jsx",
   "scripts": {
