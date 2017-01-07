@@ -30,9 +30,18 @@ $ npm start
 
 You should see a new browser tap opening and a title of "Hello World" in http://127.0.0.1:8080.
 
-From there, you start to develop your own code in the `app` directory. When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
+Now, you delete the old `.git` history and initialize new history.
 
-When committing your code, you should use [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines). Otherwise, the repo will throw an error. If you use `npm run commit` instead of `git commit`, the command will help you to produce a formatted commit message.
+```bash
+$ rm -rf .git
+$ git init
+```
+
+From there, you start to develop your own code in the `app` directory. 
+
+When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
+
+Attention, when committing your code, you should use [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines). Otherwise, the repo will throw an error. If you use `npm run commit` instead of `git commit`, the command will help you to produce a formatted commit message.
 
 ## License
 
