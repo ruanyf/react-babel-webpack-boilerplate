@@ -37,7 +37,9 @@ $ rm -rf .git
 $ git init
 ```
 
-From there, you start to develop your own code in the `app` directory. 
+You also need update `package.json` and modify fields like `name`, `version`, `description`, `keywords`, `author`, `license` and so on to fit your project.
+
+From there, you start to develop your own code in the `app` directory.
 
 When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
 
