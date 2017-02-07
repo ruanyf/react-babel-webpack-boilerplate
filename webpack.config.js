@@ -7,15 +7,10 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    progress: true,
     contentBase: './app',
     port: 8080
   },
-  entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'app/main.jsx')
-  ],
+  entry: path.resolve(__dirname, 'app/main.jsx'),
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -28,7 +23,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
