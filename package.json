@@ -47,8 +47,8 @@
     "open-browser-webpack-plugin": "0.0.3",
     "style-loader": "~0.13.1",
     "validate-commit-msg": "2.x",
-    "webpack": "latest",
-    "webpack-dev-server": "latest"
+    "webpack": "1.x",
+    "webpack-dev-server": "1.x"
   },
   "keywords": [
     "es6",

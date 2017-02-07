@@ -4,7 +4,7 @@ This repo is a boilerplate for React-Babel-Webpack project. You could use it as 
 
 - Equip with React, ES6 & Babel 6
 - Lint with ESlint and Airbnb's style sheet.
-- Build with Webpack
+- Build with Webpack（support Webpack 1 & Webpack 2）
 - Support [hot module replacement](https://webpack.github.io/docs/hot-module-replacement.html)
 - Auto Open a new browser tab when Webpack loads, and reload the page when you modified the code
 - Use [Commitizen](https://github.com/commitizen/cz-cli) to produce commit message according to [AngularJS convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines)
@@ -14,11 +14,22 @@ This repo is a boilerplate for React-Babel-Webpack project. You could use it as 
 
 ## How to use
 
-First, you should clone the repo and install the dependencies.
+First, you should clone the repo.
 
 ```bash
 $ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
 $ cd <yourAppName>
+
+**Important**: `master` branch only supports Webpack 1. If you want to use Webpack 2, please switch to `webpack2` branch which will be the default branch in the near future.
+
+```bash
+# only run the command when you want to use Webpack 2
+$ git checkout webpack2
+```
+
+Now, install the dependencies
+
+```
 $ npm install
 ```
 
