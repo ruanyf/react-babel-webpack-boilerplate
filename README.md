@@ -19,6 +19,7 @@ First, you should clone the repo.
 ```bash
 $ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
 $ cd <yourAppName>
+```
 
 **Important**: `master` branch only supports Webpack 1. If you want to use Webpack 2, please switch to `webpack2` branch which will be the default branch in the near future.
 
