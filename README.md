@@ -14,7 +14,7 @@ This repo is a boilerplate for React-Babel-Webpack project. You could use it as 
 
 ## How to use
 
-First, you should clone the repo.
+First, clone the repo.
 
 ```bash
 $ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
@@ -28,9 +28,17 @@ $ cd <yourAppName>
 $ git checkout webpack2
 ```
 
-Now, install the dependencies
+Second, delete the old `.git` history and initialize new history.
 
+```bash
+$ rm -rf .git
+$ git init
 ```
+
+
+Third, install the dependencies.
+
+```bash
 $ npm install
 ```
 
@@ -40,20 +48,11 @@ Then, launch the boilerplate app.
 $ npm start
 ```
 
-You should see a new browser tap opening and a title of "Hello World" in http://127.0.0.1:8080.
+Now you should see a new browser window/tab opening and a title of "Hello World" in http://127.0.0.1:8080.
 
-Now, you delete the old `.git` history and initialize new history.
+Last, You need update `package.json` and modify fields like `name`, `version`, `description`, `keywords`, `author`, `license` and so on to fit your project.
 
-```bash
-$ rm -rf .git
-$ git init
-```
-
-You also need update `package.json` and modify fields like `name`, `version`, `description`, `keywords`, `author`, `license` and so on to fit your project.
-
-From there, you start to develop your own code in the `app` directory.
-
-When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
+From there, you start to develop your own code in the `app` directory. When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
 
 Attention, when committing your code, you should use [AngularJS's commit message convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines). Otherwise, the repo will throw an error. If you use `npm run commit` instead of `git commit`, the command will help you to produce a formatted commit message.
 
