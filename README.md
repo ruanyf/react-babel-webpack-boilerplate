@@ -34,15 +34,15 @@ Third, install the dependencies.
 $ npm install
 ```
 
-Last, launch the boilerplate app.
+Next, launch the boilerplate app.
 
 ```bash
 $ npm start
 ```
 
-Now, you should see a new browser window/tab opening and a title of "Hello World" in http://127.0.0.1:8080.
+Now you should see a new browser window/tab opening and a title of "Hello World" in http://127.0.0.1:8080.
 
-In addition, you need update `package.json` and modify fields like `name`, `version`, `description`, `keywords`, `author`, `license` and so on to fit your project.
+Last, you need update `package.json` and modify fields like `name`, `version`, `description`, `keywords`, `author`, `license` and so on to fit your project.
 
 From there, you start to develop your own code in the `app` directory. When you finish coding, use `npm run build` or `npm run deploy` to build the static files.
 
