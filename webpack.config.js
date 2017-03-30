@@ -10,7 +10,7 @@ module.exports = {
     contentBase: './app',
     port: 8080
   },
-  entry: path.resolve(__dirname, 'app/main.jsx'),
+  entry: path.resolve(__dirname, 'app/main.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',

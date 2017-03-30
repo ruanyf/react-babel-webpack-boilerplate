@@ -7,7 +7,7 @@ const uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 module.exports = {
   devtool: 'cheap-source-map',
   entry: [
-    path.resolve(__dirname, 'app/main.jsx')
+    path.resolve(__dirname, 'app/main.js')
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
