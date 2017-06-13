@@ -17,7 +17,7 @@ This repo is a boilerplate for React-Babel-Webpack project. You could use it as 
 First, clone the repo.
 
 ```bash
-$ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
+$ git clone https://github.com/ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
 $ cd <yourAppName>
 ```
 
