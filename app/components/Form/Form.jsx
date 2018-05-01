@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from 'material-ui/TextField';
 import Payment from 'payment';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Form extends React.Component {
   constructor(props) {
@@ -84,6 +85,8 @@ class Form extends React.Component {
         { this.renderCreditCardNumber() }
         <br />
         { this.renderCreditCardInfo() }
+        <br/>
+        <RaisedButton label="Add" primary={true}/>
       </div>
     )
   }
