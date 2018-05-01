@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import CreditCardApp from './widgets/CreditCardApp.jsx';
 
 ReactDOM.render(
-  <App />,
+  <CreditCardApp />,
   document.body.appendChild(document.createElement('div'))
 );
