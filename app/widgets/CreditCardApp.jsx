@@ -100,7 +100,7 @@ class CreditCardApp extends React.Component {
   }
 
   renderLeftIcon() {
-    if(this.state.ADD_WALLET) {
+    if(this.state.ADD_WALLET || this.state.MANAGE_CARD) {
       return (
         <IconButton>
           <ArrowLeft/>
