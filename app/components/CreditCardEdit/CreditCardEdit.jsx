@@ -1,17 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField';
 import Payment from 'payment';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class Form extends React.Component {
+class CreditCardEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      number: null,
-      firstName: null, 
-      lastName: null,
-      expiration: null,
-      cvc: null
+      number: this.props.selected.number,
+      firstName: this.props.selected.firstName, 
+      lastName: this.props.selected.lastName,
+      expiration: this.props.selected.expiration,
+      cvv: this.props.selected.cvv
     }
   }
 
@@ -32,11 +33,13 @@ class Form extends React.Component {
           name = "first_name"
           hintText="First Name"
           errorText=""
+          defaultValue = { this.state.firstName }
         />
         <TextField
           name = "last_name"
           hintText="Last Name"
           errorText=""
+          defaultValue = { this.state.lastName }
         />
       </div>
     )
@@ -49,6 +52,7 @@ class Form extends React.Component {
         name = "number"
         hintText="Credit Card Number"
         errorText="The error text can be as long as you want, it will wrap."
+        defaultValue = { this.state.number }
       />
       </div>
     )
@@ -65,11 +69,13 @@ class Form extends React.Component {
           name = "expiration"
           hintText="Expiration"
           errorText=""
+          defaultValue = { this.state.expiration }
         />
         <TextField
           name = "cvc"
           hintText="CVC"
           errorText=""
+          defaultValue = { this.state.cvv }
         />
       </div>
     )
@@ -91,4 +97,8 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+CreditCardEdit.PropTypes = {
+  selected: PropTypes.object
+}
+
+export default CreditCardEdit

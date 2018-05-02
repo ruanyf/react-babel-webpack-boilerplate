@@ -24,6 +24,7 @@ class CreditCardList extends React.Component {
           rightIcon={<ActionInfo />}
           primaryText={ creditCard.name }
           secondaryText={ creditCard.number }
+          onClick = { (event) => this.props.handleOnListItemClick(event, creditCard)}
         />
       )
     }))
@@ -53,7 +54,8 @@ class CreditCardList extends React.Component {
 
 CreditCardList.propTypes = {
   creditCards: PropTypes.array,
-  handleAddCreditCard: PropTypes.func
+  handleAddCreditCard: PropTypes.func,
+  handleOnListItemClick: PropTypes.func
 }
 
 export default CreditCardList

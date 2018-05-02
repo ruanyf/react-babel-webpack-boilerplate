@@ -12,6 +12,7 @@ class CreditCardListWidget extends React.Component {
         <CreditCardList
           creditCards = { this.props.creditCards }
           handleAddCreditCard = { this.props.handleAddCreditCard }
+          handleOnListItemClick = { this.props.handleOnListItemClick }
         />
       )
     }
@@ -19,7 +20,8 @@ class CreditCardListWidget extends React.Component {
 
 CreditCardListWidget.propTypes = {
   creditCards: PropTypes.array,
-  handleAddCreditCard: PropTypes.func
+  handleAddCreditCard: PropTypes.func,
+  handleOnListItemClick: PropTypes.func
 }
 
 export default CreditCardListWidget
