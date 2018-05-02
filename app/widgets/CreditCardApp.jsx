@@ -2,6 +2,7 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import CreditCardListWidget from './CreditCardListWidget.jsx'
 import AddCreditCardWidget from './AddCreditCardWidget.jsx'
+import ManageCardWidget from './ManageCardWidget.jsx'
 import IconButton from 'material-ui/IconButton'
 import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
@@ -18,13 +19,22 @@ class CreditCardApp extends React.Component {
       creditCards: [
         {
           number: '123 2232 1232 1232',
-          type: 'VISA'
+          type: 'VISA',
+          firstName: "Jon",
+          lastName: "Snow",
+          cvv: "323",
+          expiration: "05/19"
         },
         {
           number: '1232 1232 1232 1231',
-          type: 'AMEX'
+          type: 'AMEX',
+          firstName: "Aegon",
+          lastName: "Targaryen",
+          cvv: "356",
+          expiration: "08/20"
         }
-      ]
+      ],
+      selected: {}
     }
   }
 
@@ -39,11 +49,19 @@ class CreditCardApp extends React.Component {
   }
 
   handleOnBack() {
-    console.log(this)
     this.setState({
       MAIN_SCREEN: true,
       ADD_WALLET: false,
       MANAGE_CARD: false
+    })
+  }
+
+  handleOnListClick(event, data) {
+    this.setState({
+      MAIN_SCREEN: false,
+      ADD_WALLET: false,
+      MANAGE_CARD: true,
+      selected: data
     })
   }
 
@@ -65,18 +83,17 @@ class CreditCardApp extends React.Component {
         <CreditCardListWidget
           creditCards = { this.state.creditCards }
           handleAddCreditCard = { this.handleAddCreditCard.bind(this) }
+          handleOnListItemClick = { this.handleOnListClick.bind(this)}
         />
       )
-    } else if(this.state.ADD_WALLET) {
+    } else if(this.state.ADD_WALLET) { 
       return (
-        <AddCreditCardWidget
-
-        />
+        <AddCreditCardWidget/>
       )
     } else if(this.state.MANAGE_CARD) {
       return (
         <ManageCardWidget
-
+          selected = { this.state.selected }
         />
       )
     }
