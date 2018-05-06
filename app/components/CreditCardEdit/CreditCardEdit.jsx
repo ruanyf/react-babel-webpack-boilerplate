@@ -8,10 +8,10 @@ class CreditCardEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      number: this.props.selected.number,
+      creditCardNumber: this.props.selected.creditCardNumber,
       firstName: this.props.selected.firstName, 
       lastName: this.props.selected.lastName,
-      expiration: this.props.selected.expiration,
+      expirationDate: this.props.selected.expirationDate,
       cvv: this.props.selected.cvv
     }
   }

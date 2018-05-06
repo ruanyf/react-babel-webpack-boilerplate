@@ -16,26 +16,21 @@ class CreditCardApp extends React.Component {
       MAIN_SCREEN: true,
       ADD_WALLET: false,
       MANAGE_CARD: false,
-      creditCards: [
-        {
-          number: '123 2232 1232 1232',
-          type: 'VISA',
-          firstName: "Jon",
-          lastName: "Snow",
-          cvv: "323",
-          expiration: "05/19"
-        },
-        {
-          number: '1232 1232 1232 1231',
-          type: 'AMEX',
-          firstName: "Aegon",
-          lastName: "Targaryen",
-          cvv: "356",
-          expiration: "08/20"
-        }
-      ],
+      creditCards: [],
       selected: {}
     }
+    this.getCreditCards()
+  }
+
+  getCreditCards() {
+    fetch('http://localhost:8082/creditCards/1232323223232')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        creditCards: data.creditCards[0].creditCards
+      })
+    })
   }
 
   getTitle() {
