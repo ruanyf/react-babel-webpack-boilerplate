@@ -23,14 +23,14 @@ class CreditCardList extends React.Component {
   
   renderListItems() {
     return(this.props.creditCards.map((creditCard, index) => {
-      var length = creditCard.creditCardNumber.length
+      var length = creditCard.number.length
       return (
         <ListItem
           key = {index}
           leftAvatar={<Avatar icon={this.renderCreditCardIcon(creditCard.type)} backgroundColor={blue500} />}
           rightIcon={<ActionInfo />}
           primaryText={ `${creditCard.name} (${creditCard.cardName})`}
-          secondaryText={ `\u2022\u2022\u2022\u2022 -${creditCard.creditCardNumber.slice(length - 4, length)}` }
+          secondaryText={ `\u2022\u2022\u2022\u2022 -${creditCard.number.slice(length - 4, length)}` }
           onClick = { (event) => this.props.handleOnListItemClick(event, creditCard)}
         />
       )

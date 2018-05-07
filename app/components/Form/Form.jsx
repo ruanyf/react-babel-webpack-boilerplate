@@ -85,12 +85,12 @@ class Form extends React.Component {
         name: `${this.state.firstName} ${this.state.lastName}`,
         cardName: this.state.cardName
       }
-      this.addCreditCard(creditCard)
+      this.addCreditCard(creditCard, this.props.handleAddNewCreditCard)
     // }
 
   }
 
-  addCreditCard(creditCard) {
+  addCreditCard(creditCard, onFinish) {
 
     fetch('http://localhost:8082/creditCards/', {
       method: 'post',
@@ -102,6 +102,7 @@ class Form extends React.Component {
       .then(response => response.json())
       .then(data => {
         console.log(data)
+        onFinish()
       })
   }
 

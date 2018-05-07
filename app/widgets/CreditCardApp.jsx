@@ -65,6 +65,14 @@ class CreditCardApp extends React.Component {
     window.alert("Closing widget");
   }
 
+  handleAddNewCreditCard() {
+    this.setState({
+      MAIN_SCREEN: true,
+      ADD_WALLET: false,
+      MANAGE_CARD: false
+    })
+  }
+
   handleAddCreditCard() {
     this.setState({
       MAIN_SCREEN: false,
@@ -86,6 +94,7 @@ class CreditCardApp extends React.Component {
       return (
         <AddCreditCardWidget
           userId = { this.state.userId }
+          handleAddNewCreditCard = { this.handleAddNewCreditCard.bind(this)}
         />
       )
     } else if(this.state.MANAGE_CARD) {
