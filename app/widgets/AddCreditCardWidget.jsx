@@ -10,13 +10,14 @@ class AddCreditCardWidget extends React.Component {
   render() {
     return (
       <Form
+        userId = {this.props.userId}
       />
     )
   }
 }
 
 AddCreditCardWidget.propTypes = {
-  
+  userId: PropTypes.string
 }
 
 export default AddCreditCardWidget
