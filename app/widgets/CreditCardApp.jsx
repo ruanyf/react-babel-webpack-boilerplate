@@ -17,7 +17,8 @@ class CreditCardApp extends React.Component {
       ADD_WALLET: false,
       MANAGE_CARD: false,
       creditCards: [],
-      selected: {}
+      selected: {},
+      userId: "123123123132"
     }
     this.getCreditCards()
   }
@@ -28,7 +29,7 @@ class CreditCardApp extends React.Component {
     .then(data => {
       console.log(data)
       this.setState({
-        creditCards: data.creditCards[0].creditCards
+        creditCards: data.creditCards[0] ? data.creditCards[0].cards : ""
       })
     })
   }
@@ -83,7 +84,9 @@ class CreditCardApp extends React.Component {
       )
     } else if(this.state.ADD_WALLET) { 
       return (
-        <AddCreditCardWidget/>
+        <AddCreditCardWidget
+          userId = { this.state.userId }
+        />
       )
     } else if(this.state.MANAGE_CARD) {
       return (

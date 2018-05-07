@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import Payment from 'payment';
 import RaisedButton from 'material-ui/RaisedButton';
 import CreditCard from 'credit-card'
+import creditCardType from 'credit-card-type'
 
 class Form extends React.Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class Form extends React.Component {
       lastName: "",
       number: "",
       expiration: "",
-      cvv: ""
+      cvv: "",
+      type: "",
+      cardName: ""
     }
   }
   
@@ -33,11 +36,11 @@ class Form extends React.Component {
     const number = this.state.number
     const expiration = this.state.expiration
     const cvv = this.state.cvv
-    const type = "visa"
+    const type = this.state.type
 
     console.log(firstName, lastName, number, expiration, cvv)
     let card = {
-      cardType: '',
+      cardType: type,
       number: number.replace(/\s/g, ""),
       expiryMonth: expiration.replace(/\s/g, "").split("/")[0],
       expiryYear: expiration.replace(/\s/g, "").split("/")[1],
@@ -71,10 +74,35 @@ class Form extends React.Component {
       })
     }
 
-    if(this.state.isValid) {
-      fetch()
-    }
+    // if(this.state.isValid) {
+      let creditCard = {
+        userId: this.props.userId,
+        encryption: "",
+        type: this.state.type,
+        number: this.state.number,
+        cvv: this.state.cvv,
+        expiration: this.state.expiration,
+        name: `${this.state.firstName} ${this.state.lastName}`,
+        cardName: this.state.cardName
+      }
+      this.addCreditCard(creditCard)
+    // }
 
+  }
+
+  addCreditCard(creditCard) {
+
+    fetch('http://localhost:8082/creditCards/', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(creditCard)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
   }
 
   renderName() {
@@ -102,7 +130,11 @@ class Form extends React.Component {
         name = "number"
         hintText="Credit Card Number"
         errorText= { this.state.error && this.state.error.number ? this.state.error.number : ""}
-        onChange = {(e, newValue) => { this.setState({number: newValue})}}
+        onChange = {(e, newValue) => { 
+          this.setState({
+            number: newValue,
+            type: creditCardType(newValue)[0].type.toUpperCase()
+          })}}
       />
       </div>
     )
@@ -115,18 +147,29 @@ class Form extends React.Component {
   renderCreditCardInfo() {
     return (
       <div>
-        <TextField
-          name = "expiration"
-          hintText="Expiration"
-          errorText= { this.state.error && this.state.error.expirationDate ? this.state.error.expirationDate : ""}
-          onChange = {(e, newValue) => { this.setState({expiration: newValue})}}
-        />
-        <TextField
-          name = "cvc"
-          hintText="CVC"
-          errorText= { this.state.error && this.state.error.cvv ? this.state.error.cvv : ""}
-          onChange = {(e, newValue) => { this.setState({cvv: newValue})}}
-        />
+        <div>
+          <TextField
+            name = "expiration"
+            hintText="Expiration"
+            errorText= { this.state.error && this.state.error.expirationDate ? this.state.error.expirationDate : ""}
+            onChange = {(e, newValue) => { this.setState({expiration: newValue})}}
+          />
+          <TextField
+            name = "cvc"
+            hintText="CVC"
+            errorText= { this.state.error && this.state.error.cvv ? this.state.error.cvv : ""}
+            onChange = {(e, newValue) => { this.setState({cvv: newValue})}}
+          />
+        </div>
+        <br/>
+        <div>
+          <TextField
+            name = "cardName"
+            hintText="Card Name"
+            errorText= { this.state.error && this.state.error.expirationDate ? this.state.error.expirationDate : ""}
+            onChange = {(e, newValue) => { this.setState({cardName: newValue})}}
+          />
+        </div>
       </div>
     )
   }

@@ -15,6 +15,7 @@
   "dependencies": {
     "babel-runtime": "6.x",
     "credit-card": "^3.0.1",
+    "credit-card-type": "^6.3.0",
     "material-ui-credit-card-icons": "^3.2.1",
     "payment": "^2.3.0",
     "react": "15.x",
