@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import CreditCardApp from './widgets/VirtualWalletApp.jsx';
+import VirtualWalletApp from './widgets/VirtualWalletApp.jsx';
 
 ReactDOM.render(
-  <App />,
+  <VirtualWalletApp />,
   document.body.appendChild(document.createElement('div'))
 );
