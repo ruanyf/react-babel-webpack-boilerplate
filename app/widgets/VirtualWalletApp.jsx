@@ -22,8 +22,6 @@ class VirtualWalletApp extends React.Component {
     }
   }
 
-
-
   getTitle() {
     if(this.state.MAIN_SCREEN) {
       return "Wallet"

@@ -76,7 +76,6 @@ class CreditCardList extends React.Component {
   }
 
   render() {
-    console.log(this.props.creditCards)
     return (
       <List>
         { this.props.creditCards.length > 0 ? this.renderListItems() : this.renderNoCreditCards()   }
