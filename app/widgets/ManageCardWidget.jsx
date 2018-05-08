@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CreditCardEdit from '../components/CreditCardEdit/CreditCardEdit.jsx'
+import EditForm from '../components/EditForm/EditForm.jsx'
 
 
 class ManageCardWidget extends React.Component {
@@ -11,15 +11,13 @@ class ManageCardWidget extends React.Component {
 
   render() {
     return (
-      <CreditCardEdit
+      <EditForm
         userId = { this.props.userId }
         selected = { this.props.selected }
         handleDeleteCreditCard = { this.props.handleDeleteCreditCard }
       />
     )
   }
-
-
 }
 
 ManageCardWidget.PropTypes = {

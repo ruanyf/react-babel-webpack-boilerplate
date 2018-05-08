@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 import Payment from 'payment';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class CreditCardEdit extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -36,7 +36,6 @@ class CreditCardEdit extends React.Component {
       userId: this.props.userId,
       number: this.state.number
     }
-    console.log(creditCard)
     fetch('http://localhost:8082/creditCards/', {
       method: 'delete',
       headers: {
@@ -131,9 +130,9 @@ class CreditCardEdit extends React.Component {
   }
 }
 
-CreditCardEdit.PropTypes = {
+EditForm.PropTypes = {
   selected: PropTypes.object,
   handleDeleteCreditCard: PropTypes.func
 }
 
-export default CreditCardEdit
+export default EditForm

@@ -30,7 +30,7 @@ class VirtualWalletApp extends React.Component {
     } else if(this.state.ADD_WALLET) {
       return "Add debit or credit card"
     } else if(this.state.MANAGE_CARD) {
-      return "Manage your card"
+      return `Manage ${this.state.selected.cardName}`
     }
   }
 
