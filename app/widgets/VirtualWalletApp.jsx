@@ -7,6 +7,7 @@ import IconButton from 'material-ui/IconButton'
 import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Snackbar from 'material-ui/Snackbar';
 
 class VirtualWalletApp extends React.Component {
 
@@ -18,7 +19,11 @@ class VirtualWalletApp extends React.Component {
       MANAGE_CARD: false,
       creditCards: [],
       selected: {},
-      userId: "123123123132"
+      userId: "123123123132",
+      snackBar: {
+        open: false,
+        message: ""
+      }
     }
   }
 
@@ -53,11 +58,15 @@ class VirtualWalletApp extends React.Component {
     window.alert("Closing widget");
   }
 
-  handleAddNewCreditCard() {
+  handleAddNewCreditCard(message) {
     this.setState({
       MAIN_SCREEN: true,
       ADD_WALLET: false,
-      MANAGE_CARD: false
+      MANAGE_CARD: false,
+      snackBar: {
+        open: true,
+        message
+      }
     })
   }
 
@@ -69,11 +78,16 @@ class VirtualWalletApp extends React.Component {
     })
   }
 
-  handleDeleteCreditCard() {
+  handleDeleteCreditCard(message) {
     this.setState({
       MAIN_SCREEN: true,
       ADD_WALLET: false,
-      MANAGE_CARD: false
+      MANAGE_CARD: false,
+      selected: {},
+      snackBar: {
+        open: true,
+        message
+      }
     })
   }
 
@@ -114,22 +128,41 @@ class VirtualWalletApp extends React.Component {
     }
   }
 
+  renderSnackBar() {
+    return (
+      <Snackbar
+        open={this.state.snackBar.open}
+        message={this.state.snackBar.message}
+        autoHideDuration={4000}
+        onRequestClose={this.handleRequestClose}
+      />
+    )
+  }
 
   renderAppBar() {
     const title = this.getTitle()
+    return (
+        <div>
+          <AppBar
+            title = {<span> { title } </span> }
+            iconElementRight  = { <IconButton><NavigationClose /></IconButton> }
+            iconElementLeft = { this.renderLeftIcon() }
+            onRightIconButtonClick = { this.handleOnClose }
+            onLeftIconButtonClick = { this.handleOnBack.bind(this) }
+            showMenuIconButton = { this.state.MAIN_SCREEN ? false : true }
+            style = {{textAlign:"center"}}
+          />
+          
+        </div>
+    )
+  }
 
+  renderApp() {
     return (
       <div>
-        <AppBar
-          title = {<span> { title } </span> }
-          iconElementRight  = { <IconButton><NavigationClose /></IconButton> }
-          iconElementLeft = { this.renderLeftIcon() }
-          onRightIconButtonClick = { this.handleOnClose }
-          onLeftIconButtonClick = { this.handleOnBack.bind(this) }
-          showMenuIconButton = { this.state.MAIN_SCREEN ? false : true }
-          style = {{textAlign:"center"}}
-        />
+        { this.renderAppBar() }
         { this.renderBody() }
+        { this.renderSnackBar() }
       </div>
     )
   }
@@ -137,7 +170,7 @@ class VirtualWalletApp extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        { this.renderAppBar() }
+        {this.renderApp() }
       </MuiThemeProvider>
     )
   }

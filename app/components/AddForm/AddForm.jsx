@@ -90,7 +90,6 @@ class AddForm extends React.Component {
   }
 
   addCreditCard(creditCard, onFinish) {
-
     fetch('http://localhost:8082/creditCards/', {
       method: 'post',
       headers: {
@@ -100,7 +99,9 @@ class AddForm extends React.Component {
       })
       .then(response => response.json())
       .then(data => {
-        onFinish()
+        onFinish(data.success)
+      }).catch(err => {
+        onFinish(err.error)
       })
   }
 

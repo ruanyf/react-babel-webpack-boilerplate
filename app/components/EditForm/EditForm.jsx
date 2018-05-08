@@ -27,8 +27,8 @@ class EditForm extends React.Component {
     Payment.formatCardCVC(cvc)
   }
 
-  onFinish() {
-    this.props.handleDeleteCreditCard()
+  onFinish(message) {
+    this.props.handleDeleteCreditCard(message)
   }
 
   handleOnDelete(onFinish) {
@@ -45,7 +45,10 @@ class EditForm extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.onFinish()
+      this.onFinish(data.success)
+    })
+    .catch(err => {
+      this.onFinish(err.error)
     })
   }
 
