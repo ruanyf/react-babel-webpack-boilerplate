@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import CreditCard from 'credit-card'
 import creditCardType from 'credit-card-type'
 
-class Form extends React.Component {
+class AddForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -38,7 +38,6 @@ class Form extends React.Component {
     const cvv = this.state.cvv
     const type = this.state.type
 
-    console.log(firstName, lastName, number, expiration, cvv)
     let card = {
       cardType: type,
       number: number.replace(/\s/g, ""),
@@ -101,7 +100,6 @@ class Form extends React.Component {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         onFinish()
       })
   }
@@ -134,15 +132,11 @@ class Form extends React.Component {
         onChange = {(e, newValue) => { 
           this.setState({
             number: newValue,
-            type: creditCardType(newValue)[0].type.toUpperCase()
+            type:  creditCardType(newValue)[0] ? creditCardType(newValue)[0].type.toUpperCase() : ""
           })}}
       />
       </div>
     )
-  }
-
-  renderCardList() {
-
   }
 
   renderCreditCardInfo() {
@@ -191,4 +185,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+export default AddForm

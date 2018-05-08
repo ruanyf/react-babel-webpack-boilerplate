@@ -8,7 +8,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class CreditCardApp extends React.Component {
+class VirtualWalletApp extends React.Component {
 
   constructor(props) {
     super(props)
@@ -20,18 +20,6 @@ class CreditCardApp extends React.Component {
       selected: {},
       userId: "123123123132"
     }
-    this.getCreditCards()
-  }
-
-  getCreditCards() {
-    fetch('http://localhost:8082/creditCards/1232323223232')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      this.setState({
-        creditCards: data.creditCards[0] ? data.creditCards[0].cards : ""
-      })
-    })
   }
 
   getTitle() {
@@ -40,7 +28,7 @@ class CreditCardApp extends React.Component {
     } else if(this.state.ADD_WALLET) {
       return "Add debit or credit card"
     } else if(this.state.MANAGE_CARD) {
-      return "Manage your card"
+      return `Manage ${this.state.selected.cardName}`
     }
   }
 
@@ -81,11 +69,19 @@ class CreditCardApp extends React.Component {
     })
   }
 
+  handleDeleteCreditCard() {
+    this.setState({
+      MAIN_SCREEN: true,
+      ADD_WALLET: false,
+      MANAGE_CARD: false
+    })
+  }
+
   renderBody() {
     if(this.state.MAIN_SCREEN) {
       return (
         <CreditCardListWidget
-          creditCards = { this.state.creditCards }
+          userId = { this.state.userId }
           handleAddCreditCard = { this.handleAddCreditCard.bind(this) }
           handleOnListItemClick = { this.handleOnListClick.bind(this)}
         />
@@ -100,7 +96,9 @@ class CreditCardApp extends React.Component {
     } else if(this.state.MANAGE_CARD) {
       return (
         <ManageCardWidget
+          userId = { this.state.userId }
           selected = { this.state.selected }
+          handleDeleteCreditCard = { this.handleDeleteCreditCard.bind(this) }
         />
       )
     }
@@ -145,4 +143,4 @@ class CreditCardApp extends React.Component {
   }
 }
 
-export default CreditCardApp
+export default VirtualWalletApp

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Form from '../components/Form/Form.jsx';
+import AddForm from '../components/AddForm/AddForm.jsx';
 
 class AddCreditCardWidget extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class AddCreditCardWidget extends React.Component {
 
   render() {
     return (
-      <Form
+      <AddForm
         userId = {this.props.userId}
         handleAddNewCreditCard = { this.props.handleAddNewCreditCard}
       />
