@@ -134,7 +134,7 @@ class Form extends React.Component {
         onChange = {(e, newValue) => { 
           this.setState({
             number: newValue,
-            type: creditCardType(newValue)[0].type.toUpperCase()
+            type:  creditCardType(newValue)[0] ? creditCardType(newValue)[0].type.toUpperCase() : ""
           })}}
       />
       </div>

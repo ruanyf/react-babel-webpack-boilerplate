@@ -8,7 +8,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class CreditCardApp extends React.Component {
+class VirtualWalletApp extends React.Component {
 
   constructor(props) {
     super(props)
@@ -20,19 +20,9 @@ class CreditCardApp extends React.Component {
       selected: {},
       userId: "123123123132"
     }
-    this.getCreditCards()
   }
 
-  getCreditCards() {
-    fetch('http://localhost:8082/creditCards/1232323223232')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      this.setState({
-        creditCards: data.creditCards[0] ? data.creditCards[0].cards : ""
-      })
-    })
-  }
+
 
   getTitle() {
     if(this.state.MAIN_SCREEN) {
@@ -85,7 +75,7 @@ class CreditCardApp extends React.Component {
     if(this.state.MAIN_SCREEN) {
       return (
         <CreditCardListWidget
-          creditCards = { this.state.creditCards }
+          userId = { this.state.userId }
           handleAddCreditCard = { this.handleAddCreditCard.bind(this) }
           handleOnListItemClick = { this.handleOnListClick.bind(this)}
         />
@@ -145,4 +135,4 @@ class CreditCardApp extends React.Component {
   }
 }
 
-export default CreditCardApp
+export default VirtualWalletApp

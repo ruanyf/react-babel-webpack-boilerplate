@@ -71,14 +71,15 @@ class CreditCardList extends React.Component {
 
   renderNoCreditCards() {
     return (
-      <Subheader>No Credit Cards</Subheader>
+      <Subheader>No Credit Cards Added</Subheader>
     )
   }
 
   render() {
+    console.log(this.props.creditCards)
     return (
       <List>
-        { this.props.creditCards ? this.renderListItems() : this.renderNoCreditCards() }
+        { this.props.creditCards.length > 0 ? this.renderListItems() : this.renderNoCreditCards()   }
         <Divider inset={true} />
         { this.renderAddCreditCard() }
     </List>
