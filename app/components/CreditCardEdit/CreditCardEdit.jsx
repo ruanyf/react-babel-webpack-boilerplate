@@ -8,11 +8,12 @@ class CreditCardEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      creditCardNumber: this.props.selected.creditCardNumber,
-      firstName: this.props.selected.firstName, 
-      lastName: this.props.selected.lastName,
-      expirationDate: this.props.selected.expirationDate,
-      cvv: this.props.selected.cvv
+      number: this.props.selected.number,
+      firstName: this.props.selected.name.split(" ")[0], 
+      lastName: this.props.selected.name.split(" ")[1],
+      expiration: this.props.selected.expiration,
+      cvv: this.props.selected.cvv,
+      cardName: this.props.selected.cardName
     }
   }
 
@@ -24,6 +25,29 @@ class CreditCardEdit extends React.Component {
     Payment.formatCardNumber(number)
     Payment.formatCardExpiry(expiration)
     Payment.formatCardCVC(cvc)
+  }
+
+  onFinish() {
+    this.props.handleDeleteCreditCard()
+  }
+
+  handleOnDelete(onFinish) {
+    let creditCard = {
+      userId: this.props.userId,
+      number: this.state.number
+    }
+    console.log(creditCard)
+    fetch('http://localhost:8082/creditCards/', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(creditCard)
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.onFinish()
+    })
   }
 
   renderName() {
@@ -51,38 +75,47 @@ class CreditCardEdit extends React.Component {
       <TextField
         name = "number"
         hintText="Credit Card Number"
-        errorText="The error text can be as long as you want, it will wrap."
         defaultValue = { this.state.number }
       />
       </div>
     )
   }
 
-  renderCardList() {
-
-  }
-
   renderCreditCardInfo() {
     return (
       <div>
-        <TextField
-          name = "expiration"
-          hintText="Expiration"
-          errorText=""
-          defaultValue = { this.state.expiration }
-        />
-        <TextField
-          name = "cvc"
-          hintText="CVC"
-          errorText=""
-          defaultValue = { this.state.cvv }
-        />
+        <div>
+          <TextField
+            name = "expiration"
+            hintText="Expiration"
+            errorText=""
+            defaultValue = { this.state.expiration }
+          />
+          <TextField
+            name = "cvc"
+            hintText="CVC"
+            errorText=""
+            defaultValue = { this.state.cvv }
+          />
+        </div>
+        <br/>
+        <div>
+          <TextField
+            name = "cardName"
+            hintText="Card Name"
+            errorText=  ""
+            defaultValue = {this.state.cardName}
+          />
+        </div>
       </div>
     )
   }
 
   
   render() {
+    const style = {
+      margin: 12,
+    };
     return(
       <div>
         {this.renderName()}
@@ -91,14 +124,16 @@ class CreditCardEdit extends React.Component {
         <br />
         { this.renderCreditCardInfo() }
         <br/>
-        <RaisedButton label="Add" primary={true}/>
+        <RaisedButton label="Update" primary={true} style={style}/>
+        <RaisedButton label="Delete" primary={true} style={style} onClick={this.handleOnDelete.bind(this)}/>
       </div>
     )
   }
 }
 
 CreditCardEdit.PropTypes = {
-  selected: PropTypes.object
+  selected: PropTypes.object,
+  handleDeleteCreditCard: PropTypes.func
 }
 
 export default CreditCardEdit

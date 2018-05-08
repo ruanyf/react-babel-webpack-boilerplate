@@ -141,10 +141,6 @@ class Form extends React.Component {
     )
   }
 
-  renderCardList() {
-
-  }
-
   renderCreditCardInfo() {
     return (
       <div>

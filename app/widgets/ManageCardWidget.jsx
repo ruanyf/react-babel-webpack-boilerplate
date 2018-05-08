@@ -12,7 +12,9 @@ class ManageCardWidget extends React.Component {
   render() {
     return (
       <CreditCardEdit
+        userId = { this.props.userId }
         selected = { this.props.selected }
+        handleDeleteCreditCard = { this.props.handleDeleteCreditCard }
       />
     )
   }
@@ -21,7 +23,9 @@ class ManageCardWidget extends React.Component {
 }
 
 ManageCardWidget.PropTypes = {
-  selected: PropTypes.object
+  userId: PropTypes.string,
+  selected: PropTypes.object,
+  handleDeleteCreditCard: PropTypes.func
 }
 
 export default ManageCardWidget

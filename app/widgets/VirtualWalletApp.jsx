@@ -71,6 +71,14 @@ class VirtualWalletApp extends React.Component {
     })
   }
 
+  handleDeleteCreditCard() {
+    this.setState({
+      MAIN_SCREEN: true,
+      ADD_WALLET: false,
+      MANAGE_CARD: false
+    })
+  }
+
   renderBody() {
     if(this.state.MAIN_SCREEN) {
       return (
@@ -90,7 +98,9 @@ class VirtualWalletApp extends React.Component {
     } else if(this.state.MANAGE_CARD) {
       return (
         <ManageCardWidget
+          userId = { this.state.userId }
           selected = { this.state.selected }
+          handleDeleteCreditCard = { this.handleDeleteCreditCard.bind(this) }
         />
       )
     }
